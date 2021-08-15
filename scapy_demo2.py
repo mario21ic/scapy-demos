@@ -3,9 +3,9 @@
 import sys
 from scapy.all import *
 
-p=IP(dst="192.168.1.1")/ICMP()/"hello python"
+p = IP(dst="github.com")/ICMP()
 print(p)
-print(p.show())
 
-sr1(p)
+r = sr1(p)
+print(r)
 
