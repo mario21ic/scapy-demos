@@ -20,6 +20,12 @@ Testing UDP:
 $ python udp.py 192.168.1.10
 $ sudo tcpdump -i enp2s0 udp port 666
 ```
+Wireshark filter: ip.addr == 192.168.1.10 && udp
+
+Testing UDP with false source mac & ip:
+```
+$ python udp_false_src.py 0:e0:4c:f1:ce:a2 192.168.1.10 192.168.1.10
+```
 
 Testing UDP on loop:
 ```
