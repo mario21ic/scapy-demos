@@ -35,3 +35,8 @@ $ netcat -u localhost 666
 $ python udp.py 127.0.0.1
 ```
 
+ARP spoof:
+target_ip spoof_ip spoof_mac
+```
+$ python arp_spoof.py 192.168.1.10 192.168.1.1 3c:06:30:0c:8b:67
+```
