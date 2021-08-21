@@ -40,3 +40,8 @@ target_ip spoof_ip spoof_mac
 ```
 $ python arp_spoof.py 192.168.1.10 192.168.1.1 3c:06:30:0c:8b:67
 ```
+On target machine:
+```
+$ arp -a
+```
+
