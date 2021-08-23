@@ -25,3 +25,4 @@ r2 = sendp(pkg1_1, iface="en0", verbose=0)
 print(pkg1_1.show())
 print(pkg1_1.summary())
 print(r2)
+# Nota: desde local se manda un SYN, ACK y el target debe intentar devolver un RST
