@@ -32,3 +32,19 @@ def dec_bin(mydecimal):
             suma = suma - d
             result += "0"
     return result
+
+def ip_bin(my_ip):
+    octetos = my_ip.split(".")
+    bits = ""
+    for block in octetos:
+        #print("block:", block)
+        bits += str(dec_bin(int(block)))
+    bits = list(bits)
+    return bits
+
+def fill_last_n(bits, n, replace_with):
+    for x in range(n):
+        index = len(bits)-(x+1)
+        #print("index", index)
+        bits[index] = replace_with
+    return bits

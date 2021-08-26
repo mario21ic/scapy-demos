@@ -18,4 +18,4 @@ def get_net_host(my_ip, clase):
     elif clase == "E":
         print("Reserved for future use")
 
-    return net_id, host_id
+    return ".".join(net_id), ".".join(host_id)
