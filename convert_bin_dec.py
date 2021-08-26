@@ -2,23 +2,8 @@
 
 import sys
 
-def bin_dec(mybinario) -> int:
-    """
-    bits_value = []
-    for x in range(8):
-        bits_value.append(2**x)
-    bits_value.reverse()
-    """
-    bits_value = [2**x for x in range(8)]
-    bits_value.reverse()
+from lib.convert import bin_dec
 
-    result = 0
-    x = 0
-    for b in mybinario:
-        if b=="1":
-            result += int(bits_value[x])
-        x+=1
-    return result
 
 if len(sys.argv)==5:
     for block in range(1, 5):
