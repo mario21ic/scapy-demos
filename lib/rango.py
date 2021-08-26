@@ -4,6 +4,12 @@ from .convert import dec_bin, bin_dec, ip_bin, fill_last_n
 from .mask import group_by8
 
 
+def get_n(my_prefix):
+    return 32 - my_prefix
+
+def get_ips_n(my_prefix):
+    return (2**get_n(my_prefix))-2
+
 def get_direccion_red(my_ip, n):
     bits = ip_bin(my_ip)
     #print("bits", bits)
@@ -17,7 +23,7 @@ def get_direccion_red(my_ip, n):
     for b in blocks:
         result.append(str(bin_dec(b)))
     #print("result", result)
-    return result
+    return ".".join(result)
 
 def get_direccion_broadcast(my_ip, n):
     bits = ip_bin(my_ip)
@@ -31,7 +37,7 @@ def get_direccion_broadcast(my_ip, n):
     for b in blocks:
         result.append(str(bin_dec(b)))
     #print("result", result)
-    return result
+    return ".".join(result)
 
 def get_primera_direccion(direccion_red):
     bits = ip_bin(direccion_red)
@@ -42,7 +48,7 @@ def get_primera_direccion(direccion_red):
     for b in blocks:
         result.append(str(bin_dec(b)))
     #print("result", result)
-    return result
+    return ".".join(result)
 
 def get_ultima_direccion(direccion_broadcast):
     bits = ip_bin(direccion_broadcast)
@@ -53,7 +59,7 @@ def get_ultima_direccion(direccion_broadcast):
     for b in blocks:
         result.append(str(bin_dec(b)))
     #print("result", result)
-    return result
+    return ".".join(result)
 
 def get_rango(octeto):
     inicio = copy.copy(octeto)

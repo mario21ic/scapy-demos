@@ -5,7 +5,7 @@
 import sys
 
 from lib.clase import get_clase
-from lib.rango import get_rango, get_direccion_red, get_direccion_broadcast, get_primera_direccion, get_ultima_direccion
+from lib.rango import get_rango, get_direccion_red, get_direccion_broadcast, get_primera_direccion, get_ultima_direccion, get_n, get_ips_n
 from lib.net_host import get_net_host
 from lib.mask import get_mask
 
@@ -18,18 +18,17 @@ print("clase:", clase)
 net_id, host_id = get_net_host(my_ip, clase)
 print("net_id: %s - host_id: %s" % (net_id, host_id))
 
-n = 32 - my_prefix
+n = get_n(my_prefix)
 print("n:", n)
-ips = (2**n)-2
-print("ips:", ips)
+print("ips:", get_ips_n(my_prefix))
 
 my_mask = get_mask(my_prefix)
-print("mask:", ".".join(my_mask))
+print("mask:", my_mask)
 
-direccion_red = ".".join(get_direccion_red(my_ip, n))
+direccion_red = get_direccion_red(my_ip, n)
 print("direccion de red:", direccion_red)
 
-direccion_broadcast = ".".join(get_direccion_broadcast(my_ip, n))
+direccion_broadcast = get_direccion_broadcast(my_ip, n)
 print("direccion de broadcast:", direccion_broadcast)
 
 print("primera direccion disponible:", get_primera_direccion(direccion_red))
