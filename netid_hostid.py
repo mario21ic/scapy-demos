@@ -3,30 +3,20 @@
 import sys
 
 from lib.clase import get_clase
+from lib.rango import get_rango
+from lib.net_host import get_net_host
 
 
 my_ip = sys.argv[1]
-octetos = my_ip.split(".")
 clase = get_clase(my_ip)
-
-net_id = None
-host_id = None
 
 print("clase:", clase)
 
-if clase == "A":
-    net_id = octetos[0]
-    host_id = octetos[1:]
-elif clase == "B":
-    net_id = octetos[:2]
-    host_id = octetos[2:]
-elif clase == "C":
-    net_id = octetos[:3]
-    host_id = octetos[3:]
-elif clase == "D":
-    print("Multicast address")
-elif clase == "E":
-    print("Reserved for future use")
+net_id, host_id = get_net_host(my_ip, clase)
+
+rango = [None, None]
+if clase!="D" and clase!="E":
+    rango = get_rango(net_id)
 
 print("net_id: %s - host_id: %s" % (net_id, host_id))
-
+print("rango: %s - %s" % (rango[0], rango[1]))
