@@ -7,7 +7,7 @@ print("resolve the target....")
 target = sys.argv[1]
 
 # answer = sr1(IP(dst="8.8.8.8")/UDP(dport=53)/DNS(rd=1,qd=DNSQR(qname=target)),verbose=0)
-dns_req = IP(dst="192.168.1.10")/\
+dns_req = IP(dst="192.168.1.3")/\
     UDP(dport=53)/\
     DNS(rd=1,qd=DNSQR(qname=target))
 
