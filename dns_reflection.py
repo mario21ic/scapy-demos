@@ -34,3 +34,7 @@ pkg = IP(src=RandIP("192.168.1.2/24"),dst=dns_server)/\
 send(pkg, loop=1, verbose=1, iface="en0")
 #answer = sr1(pkg, verbose=0)
 #print(answer[DNS].summary())
+
+# sudo tcpdump -i enp2s0 "src 192.168.1.2 and port 53"
+# sudo nmon
+
